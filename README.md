@@ -92,5 +92,29 @@ All errors: `{ "error_code", "message", "details" }`. Full spec at `/docs`.
 | GET | `/intelligence/reputation` | Public reputation cache |
 | GET | `/audit/{entity_type}/{entity_id}` | Audit trail |
 
+## How to Run
 
+**Requires:** Python 3.11+, Node.js 18+. Optional: `OPENAI_API_KEY` in `backend/.env` (copy from `.env.example`).
 
+**Terminal 1 — API**
+```powershell
+cd backend
+pip install -r requirements.txt
+python scripts/seed_db.py
+python -m uvicorn app.main:app --reload --port 8000
+```
+
+**Terminal 2 — Dashboard**
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+| Service | URL |
+|---------|-----|
+| Dashboard | http://localhost:5173 |
+| API docs | http://localhost:8000/docs |
+| Health check | http://localhost:8000/health |
+
+Start the **backend first**, then the frontend. Run `seed_db.py` once to load emails before using the inbox or analytics.
