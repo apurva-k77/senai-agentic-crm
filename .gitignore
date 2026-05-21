@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# Local DB & env (do not commit secrets or local data)
+*.db
+.env
+.env.local
+
+# Node
+node_modules/
+frontend/dist/
+.npm
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs & caches
+*.log
+.cache/
+.pytest_cache/
+
+# Cursor / agent tools (optional)
+agent-tools/

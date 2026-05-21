@@ -1,0 +1,23 @@
+services:
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./senai_crm.db
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - STREAM_RATE=1
+    volumes:
+      - ./data:/app/data:ro
+      - ./knowledge:/app/knowledge:ro
+      - ./backend:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - api
