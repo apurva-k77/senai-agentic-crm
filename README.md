@@ -92,36 +92,5 @@ All errors: `{ "error_code", "message", "details" }`. Full spec at `/docs`.
 | GET | `/intelligence/reputation` | Public reputation cache |
 | GET | `/audit/{entity_type}/{entity_id}` | Audit trail |
 
-## Project Structure
 
-```
-SenAI Project/
-├── data/email-data-advanced.json   # 60 emails, 30+ threads
-├── knowledge/                      # RAG source documents
-├── backend/app/                    # FastAPI application
-├── frontend/src/                   # React dashboard
-├── docs/architecture.md            # Mermaid diagrams
-└── scripts/generate_dataset.py
-```
 
-## Deliverables Checklist
-
-- [x] GitHub-ready repo structure  
-- [x] Architecture diagram (`docs/architecture.md`)  
-- [ ] Screen recording — record a walkthrough of ingest → dashboard → thread → analytics  
-- [x] RAG pipeline  
-- [x] Autonomous agent with reasoning trace  
-- [x] Live web intelligence (cached)  
-- [x] Sentiment trend dashboard  
-
-## Screen Recording Suggestion
-
-1. Run `seed_db.py` and open dashboard  
-2. Open `msg_052` thread — show GDPR legal acknowledgement  
-3. Dry-run `msg_038` — show no auto-reply, security escalate  
-4. Analytics → Karen sender sentiment  
-5. `/docs` OpenAPI overview  
-
-## License
-
-Assessment submission — SenAI Solutions.
